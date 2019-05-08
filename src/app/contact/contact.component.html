@@ -1,0 +1,31 @@
+<h2>Contact Us</h2>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <h5 *ngIf="success">Your form is valid!</h5>
+
+  <label>
+    <input type="text" formControlName="name"/>
+    <div *ngIf="submitted && formGroup.controls.name.errors" class="error">
+        Your name is required
+    </div>
+  </label>
+  <label>
+    <textarea formControlName="message"></textarea>
+    <div *ngIf="submitted && formGroup.controls.message.errors" class="error">
+        message is required
+    </div>
+  </label>
+  <button  
+    [ngStyle]="{'background': success ? 'green' : 'red'}" 
+    type="submit" 
+    name="Submit">Submit</button>
+</form>
+
+
+<div *ngIf="submitted" class="results">
+    <strong>Name:</strong> 
+    <span>{{ formGroup.controls.name.value }}</span>
+
+    <strong>Message:</strong> 
+    <span>{{ formGroup.controls.message.value }}</span>
+  </div>
