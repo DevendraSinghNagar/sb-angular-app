@@ -6,12 +6,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { PostsComponent } from './pages/posts/posts.component';
+import { UsersComponent } from './pages/users/users.component';
 
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { UsersComponent } from './users/users.component';
-import { DetailsComponent } from './details/details.component';
-import { PostsComponent } from './posts/posts.component';
-import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [

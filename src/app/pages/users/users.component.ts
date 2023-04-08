@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, animate, style, stagger, transition, query } from '@angular/animations';
-
-import { DataService } from '../data.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
     selector: 'app-users',
@@ -11,22 +10,22 @@ import { DataService } from '../data.service';
         trigger('userListAnimation', [
             transition('* <=> *', [
                 query(':enter', [
-                    style({opacity: 0, transform: 'translateY(-15px)'}),
+                    style({ opacity: 0, transform: 'translateY(-15px)' }),
                     stagger(
-                        '50ms', 
+                        '50ms',
                         animate(
-                            '550ms ease-in', 
+                            '550ms ease-in',
                             style({
-                                opacity: 1, 
+                                opacity: 1,
                                 transform: 'translateY(0)'
                             })
                         )
                     )
-                ], {optional: true}),
+                ], { optional: true }),
                 query(':leave', [
                     animate('50ms',
-                    style({opacity: 0}))
-                ], {optional: true}
+                        style({ opacity: 0 }))
+                ], { optional: true }
                 )
             ])
         ])
@@ -34,13 +33,13 @@ import { DataService } from '../data.service';
 })
 export class UsersComponent implements OnInit {
 
-  users:object;
-  constructor(private ds: DataService) { }
+    users: object;
+    constructor(private ds: DataService) { }
 
-  ngOnInit() {
-    this.ds.getUsers().subscribe(
-      data => this.users = data
-    );
-  }
+    ngOnInit() {
+        this.ds.getUsers().subscribe(
+            data => this.users = data
+        );
+    }
 
 }

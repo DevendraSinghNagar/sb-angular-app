@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../data.service';
+import { DataService } from 'src/app/shared/services/data.service';
 
 @Component({
 	selector: 'app-details',
@@ -18,9 +18,9 @@ export class DetailsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-        this.ds.getUser(this.user).subscribe(
-            data => this.user = data
-        )
+		this.ds.getUser(this.user).subscribe(
+			data => this.user = data
+		)
 	}
 
 }
